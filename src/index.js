@@ -1,13 +1,15 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 const { config } = require("./config");
 const platziStore = require("./routes");
-const notFoundHandler = require("./utils/middleware/notFoundHandler")
+const notFoundHandler = require("./utils/middleware/notFoundHandler");
 const {
   logErrors,
   wrapErrors,
